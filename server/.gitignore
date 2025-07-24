@@ -1,0 +1,5 @@
+node_modules
+.env
+.idea
+.vercel
+adminsdk-fbsvc-79d2f04bd7.json
