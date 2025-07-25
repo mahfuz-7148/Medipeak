@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import { useNavigate, useParams } from 'react-router';
 import { useQuery } from '@tanstack/react-query';
-import useAuth from '../hooks/useAuth.jsx';
+
 import useAxios from '../Hooks/useAxios.jsx';
 import Swal from 'sweetalert2';
 import useAxiosSecure from '../Hooks/useAxiosSecure.jsx';
+import useAuth from '../Hooks/useAuth.jsx';
 
 const PaymentForm = () => {
     const { registrationId } = useParams();
