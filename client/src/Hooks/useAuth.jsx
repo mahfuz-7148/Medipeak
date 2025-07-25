@@ -3,8 +3,7 @@ import {AuthContext} from '../Contexts/Authprovider.jsx';
 
 
 const useAuth = () => {
-     const auth =  use(AuthContext);
-     return auth
+     return use(AuthContext)
 };
 
 export default useAuth;
