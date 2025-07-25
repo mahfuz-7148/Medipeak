@@ -3,7 +3,7 @@ import useAuth from './useAuth.jsx';
 import {useEffect} from 'react'
 
 const axiosSecure = axios.create({
-    baseURL: 'http://localhost:3000',
+    baseURL: 'https://medipeak.vercel.app',
 });
 
 const useAxiosSecure = () => {
