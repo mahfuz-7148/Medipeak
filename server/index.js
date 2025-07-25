@@ -24,8 +24,6 @@ admin.initializeApp({
     credential: admin.credential.cert(serviceAccount)
 });
 
-
-
 // MongoDB connection
 const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@medipeak.nv96kmz.mongodb.net/?retryWrites=true&w=majority&appName=mediPeak`;
 const client = new MongoClient(uri, {
