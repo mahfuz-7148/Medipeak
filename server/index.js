@@ -1,19 +1,30 @@
-require('dotenv').config();
-const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
-const admin = require("firebase-admin");
-const serviceAccount = require("./adminsdk-fbsvc-79d2f04bd7.json");
-const stripe = require('stripe')(process.env.PAYMENT_GATEWAY_KEY);
-const express = require('express');
-const cors = require('cors');
+import dotenv from 'dotenv';
+import express from 'express';
+import cors from 'cors';
+import { MongoClient, ServerApiVersion, ObjectId } from 'mongodb';
+import admin from 'firebase-admin';
+import Stripe from 'stripe';
+
+dotenv.config();
+const stripe = Stripe(process.env.PAYMENT_GATEWAY_KEY);
 
 const app = express();
 const port = process.env.PORT || 3000;
 
 app.use(cors());
 app.use(express.json());
+
+const decodedKey = Buffer.from(process.env.FIREBASE_PRIVATE_KEY_BASE64, 'base64').toString('utf8');
+// console.log(decodedKey);
+
+const serviceAccount = JSON.parse(decodedKey);
+// console.log(serviceAccount);
+
 admin.initializeApp({
     credential: admin.credential.cert(serviceAccount)
 });
+
+
 
 // MongoDB connection
 const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@medipeak.nv96kmz.mongodb.net/?retryWrites=true&w=majority&appName=mediPeak`;
@@ -27,7 +38,7 @@ const client = new MongoClient(uri, {
 
 async function run() {
     try {
-        // await client.connect();
+        await client.connect();
         // console.log("MongoDB connected");
 
         const db = client.db('mediPeakDB');
@@ -227,6 +238,8 @@ async function run() {
                 res.status(500).json({ message: 'Failed to fetch camps' });
             }
         });
+
+        
 
         app.post('/camps', async (req, res) => {
             const { campName, campFees, dateTime, location, image, description, healthcareProfessionalName, created_by } = req.body;
