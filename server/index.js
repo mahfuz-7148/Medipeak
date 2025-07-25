@@ -36,7 +36,7 @@ const client = new MongoClient(uri, {
 
 async function run() {
     try {
-        await client.connect();
+        // await client.connect();
         // console.log("MongoDB connected");
 
         const db = client.db('mediPeakDB');
