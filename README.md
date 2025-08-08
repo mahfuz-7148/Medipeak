@@ -1,6 +1,6 @@
 # 🏥 Medical Camp Management System
 
-
+![Recipe Book App Screenshot](https://i.postimg.cc/XqFsVTTX/medipeak.png)
 
 ## 📋 Project Overview
 
