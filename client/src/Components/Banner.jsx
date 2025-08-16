@@ -43,7 +43,16 @@ export default function Banner() {
 
     return (
         <div
-            className="relative w-full h-[400px] sm:h-[500px] md:h-[650px] overflow-hidden rounded-3xl shadow-2xl"
+            className="relative overflow-hidden block"
+            style={{
+                width: '100vw',
+                height: '100vh',
+                margin: 0,
+                padding: 0,
+                marginLeft: 'calc(-50vw + 50%)',
+                marginRight: 'calc(-50vw + 50%)',
+                maxWidth: '100vw'
+            }}
             onMouseEnter={() => setIsPaused(true)}
             onMouseLeave={() => setIsPaused(false)}
         >
@@ -53,11 +62,13 @@ export default function Banner() {
                     className={`absolute top-0 left-0 w-full h-full transition-all duration-1000 ease-in-out ${
                         index === current ? 'opacity-100 scale-100' : 'opacity-0 scale-105'
                     }`}
+                    style={{ width: '100%', height: '100%' }}
                 >
                     <img
                         src={banner.image}
                         alt={banner.alt}
                         className="w-full h-full object-cover brightness-75"
+                        style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                     />
                     <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white bg-gradient-to-t from-black/80 via-black/50 to-transparent">
                         <div className="relative max-w-3xl px-4">
@@ -120,6 +131,24 @@ export default function Banner() {
             </div>
             <style>
                 {`
+                    * {
+                        box-sizing: border-box;
+                    }
+                    body, html {
+                        margin: 0 !important;
+                        padding: 0 !important;
+                        width: 100% !important;
+                        height: 100% !important;
+                        overflow-x: hidden;
+                    }
+                    .banner-fullwidth {
+                        width: 100vw;
+                        position: relative;
+                        left: 50%;
+                        right: 50%;
+                        margin-left: -50vw;
+                        margin-right: -50vw;
+                    }
                     @keyframes slideIn {
                         from {
                             opacity: 0;
