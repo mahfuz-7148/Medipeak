@@ -4,10 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6d7d0295-2cb1-4869-b767-c894c303bedd" name="Changes" comment="updated banner and home">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Components/Banner.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Components/Banner.jsx" afterDir="false" />
+    <list default="true" id="6d7d0295-2cb1-4869-b767-c894c303bedd" name="Changes" comment="updated home">
+      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/Navbar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Components/Navbar.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Pages/AvailableCamps.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Pages/AvailableCamps.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/Pages/Home.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Pages/Home.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Router/Routes.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Router/Routes.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,7 +73,7 @@
       <updated>1755321207596</updated>
       <workItem from="1755321209701" duration="11873000" />
       <workItem from="1755341902839" duration="1236000" />
-      <workItem from="1755356486444" duration="3147000" />
+      <workItem from="1755356486444" duration="9795000" />
     </task>
     <task id="LOCAL-00001" summary="updated theme">
       <option name="closed" value="true" />
@@ -112,7 +115,15 @@
       <option name="project" value="LOCAL" />
       <updated>1755333806499</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="updated home">
+      <option name="closed" value="true" />
+      <created>1755360380226</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1755360380226</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -134,6 +145,7 @@
     <MESSAGE value="updated banner" />
     <MESSAGE value="updated navbar" />
     <MESSAGE value="updated banner and home" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated banner and home" />
+    <MESSAGE value="updated home" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated home" />
   </component>
 </project>

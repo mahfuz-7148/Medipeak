@@ -26,6 +26,7 @@
     "motion": "^12.18.1",
     "react": "^19.0.0",
     "react-awesome-button": "^7.0.5",
+    "react-countup": "^6.5.3",
     "react-datepicker": "^8.4.0",
     "react-dom": "^19.0.0",
     "react-firebase-hooks": "^5.1.1",

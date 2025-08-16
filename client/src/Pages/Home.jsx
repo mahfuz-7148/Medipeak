@@ -79,11 +79,10 @@ const Home = () => {
     }
 
     return (
-        <div className="min-h-screen  text-gray-900 dark:text-gray-100">
+        <div className="min-h-screen text-gray-900 dark:text-gray-100">
             <Banner />
 
             <div className="max-w-7xl mx-auto px-4 py-12 space-y-16">
-
                 {/* Popular Medical Camps Section */}
                 <section>
                     <div className="text-center mb-12">
@@ -165,7 +164,7 @@ const Home = () => {
                                             </div>
 
                                             <button
-                                                className="w-full bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-blue-600 hover:to-indigo-600 text-white font-semibold py-3 px-4 rounded-lg transition-all duration-300 flex items-center justify-center space-x-2 mt-auto"
+                                                className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white text-lg font-semibold py-4 px-8 rounded-lg transition-all duration-300 flex items-center justify-center space-x-2 mt-auto"
                                                 onClick={() => navigate(`/camp/${camp._id}`)}
                                             >
                                                 <span>Learn More</span>
@@ -180,7 +179,7 @@ const Home = () => {
 
                             <div className="text-center mt-12">
                                 <button
-                                    className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold px-8 py-4 rounded-lg text-lg shadow-lg hover:shadow-xl transition-all duration-300 inline-flex items-center space-x-2"
+                                    className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white text-lg font-semibold px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 inline-flex items-center space-x-2"
                                     onClick={() => navigate("/available-camps")}
                                 >
                                     <span>View All Medical Camps</span>
@@ -193,8 +192,8 @@ const Home = () => {
                     )}
                 </section>
 
-                {/* NEW FEATURE 1: Flash Sale Banner */}
-                <section className=" rounded-3xl p-8 text-gray-900 dark:text-white shadow-2xl relative overflow-hidden border border-gray-200 dark:border-gray-700">
+                {/* Flash Sale Banner */}
+                <section className="rounded-3xl p-8 text-gray-900 dark:text-white shadow-2xl relative overflow-hidden border border-gray-200 dark:border-gray-700">
                     <div className="absolute inset-0 opacity-20">
                         <div className="absolute top-4 left-4 w-32 h-32 bg-yellow-400 dark:bg-blue-500 rounded-full blur-3xl animate-pulse"></div>
                         <div className="absolute bottom-4 right-4 w-24 h-24 bg-orange-400 dark:bg-purple-500 rounded-full blur-2xl animate-pulse delay-1000"></div>
@@ -204,15 +203,15 @@ const Home = () => {
                             <svg className="w-16 h-16 text-yellow-400 dark:text-orange-400 animate-bounce mr-4" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M13.5.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67zM11.71 19c-1.78 0-3.22-1.4-3.22-3.14 0-1.62 1.05-2.76 2.81-3.12 1.77-.36 3.6-1.21 4.62-2.58.39 1.29.59 2.65.59 4.04 0 2.65-2.15 4.8-4.8 4.8z"/>
                             </svg>
-                            <div className="bg-yellow-400 dark:bg-orange-500 text-black dark:text-white px-4 py-2 rounded-full font-bold text-xl animate-pulse">
+                            <div className="bg-yellow-400 dark:bg-orange-500 text-black dark:text-white px-4 py-2 rounded-full font-bold text-lg animate-pulse">
                                 🔥 FLASH SALE
                             </div>
                             <svg className="w-16 h-16 text-yellow-400 dark:text-orange-400 animate-bounce ml-4" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M13.5.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67zM11.71 19c-1.78 0-3.22-1.4-3.22-3.14 0-1.62 1.05-2.76 2.81-3.12 1.77-.36 3.6-1.21 4.62-2.58.39 1.29.59 2.65.59 4.04 0 2.65-2.15 4.8-4.8 4.8z"/>
                             </svg>
                         </div>
-                        <h2 className="text-5xl font-bold mb-4">⚡ 24 HOURS ONLY ⚡</h2>
-                        <p className="text-2xl mb-6 font-semibold">Get up to 70% OFF on Premium Health Camps!</p>
+                        <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">⚡ 24 HOURS ONLY ⚡</h2>
+                        <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">Get up to 70% OFF on Premium Health Camps!</p>
                         <div className="flex justify-center items-center space-x-8 mb-6">
                             <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl p-4">
                                 <div className="text-3xl font-bold">12</div>
@@ -230,9 +229,9 @@ const Home = () => {
                             </div>
                         </div>
                         <button
-                            className="bg-yellow-400 hover:bg-yellow-300 dark:bg-orange-500 dark:hover:bg-orange-400 text-black dark:text-white border-0 px-12 py-6 text-2xl font-bold shadow-2xl hover:shadow-yellow-400/50 dark:hover:shadow-orange-500/50 transition-all duration-300 hover:scale-110 rounded-full inline-flex items-center space-x-3"
+                            className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white text-lg font-semibold px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 inline-flex items-center space-x-2"
                         >
-                            <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M11.5,22C11.64,22 11.77,22 11.9,21.96C12.55,21.82 13.09,21.38 13.34,20.78C13.44,20.54 13.5,20.27 13.5,20H9.5A2,2 0 0,0 11.5,22M18,10.5C18,7.43 15.86,4.86 13,4.18V3.5A1.5,1.5 0 0,0 11.5,2A1.5,1.5 0 0,0 10,3.5V4.18C7.13,4.86 5,7.43 5,10.5V16L3,18V19H20V18L18,16M11.5,7C13.71,7 15.5,8.79 15.5,11C15.5,13.21 13.71,15 11.5,15C9.29,15 7.5,13.21 7.5,11C7.5,8.79 9.29,7 11.5,7Z"/>
                             </svg>
                             <span>🛒 SHOP FLASH SALE NOW!</span>
@@ -264,16 +263,16 @@ const Home = () => {
                     </div>
                 </section>
 
-                {/* NEW FEATURE 2: Newsletter Subscription */}
-                <section className=" rounded-3xl p-12 text-gray-900 dark:text-white shadow-2xl border border-gray-200 dark:border-gray-700">
+                {/* Newsletter Subscription */}
+                <section className="rounded-3xl p-12 text-gray-900 dark:text-white shadow-2xl border border-gray-200 dark:border-gray-700">
                     <div className="text-center mb-12">
                         <div className="bg-gray-100 dark:bg-gray-800 rounded-full w-24 h-24 flex items-center justify-center mx-auto mb-6">
                             <svg className="w-10 h-10 text-blue-500 dark:text-blue-400" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/>
                             </svg>
                         </div>
-                        <h2 className="text-5xl font-bold mb-4">📧 Stay Updated!</h2>
-                        <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                        <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">📧 Stay Updated!</h2>
+                        <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
                             Subscribe to our newsletter and never miss exclusive health camp deals, tips, and updates!
                         </p>
                     </div>
@@ -305,7 +304,7 @@ const Home = () => {
                                     className="flex-1 px-6 py-4 rounded-xl bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-lg"
                                 />
                                 <button
-                                    className="bg-blue-500 hover:bg-blue-600 dark:bg-blue-600 dark:hover:bg-blue-700 text-white border-0 px-8 py-4 text-lg font-bold shadow-lg hover:shadow-xl transition-all duration-300 rounded-xl inline-flex items-center space-x-2"
+                                    className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white text-lg font-semibold px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 inline-flex items-center space-x-2"
                                 >
                                     <span>🚀 Subscribe Now!</span>
                                 </button>
@@ -318,15 +317,15 @@ const Home = () => {
                 </section>
 
                 {/* Feedback and Ratings Section */}
-                <section className=" rounded-3xl p-8 shadow-xl border border-gray-200 dark:border-gray-700">
+                <section className="rounded-3xl p-8 shadow-xl border border-gray-200 dark:border-gray-700">
                     <div className="text-center mb-12">
-                        <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-green-600 to-teal-600 bg-clip-text text-transparent">
+                        <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
                             Community Feedback
                         </h2>
                         <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
                             Hear from our community members about their experiences with our medical camps
                         </p>
-                        <div className="w-24 h-1 bg-gradient-to-r from-green-500 to-teal-500 mx-auto mt-4 rounded-full"></div>
+                        <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-indigo-500 mx-auto mt-4 rounded-full"></div>
                     </div>
 
                     {feedbackLoading ? (
@@ -378,8 +377,8 @@ const Home = () => {
                                                     ))}
                                                 </div>
                                                 <span className="ml-2 text-gray-600 dark:text-gray-300 text-sm">
-                                    ({item.rating}/5)
-                                </span>
+                                                    ({item.rating}/5)
+                                                </span>
                                             </div>
                                             <p className="text-gray-700 dark:text-gray-300 mb-3 italic">
                                                 "{item.comment}"
@@ -403,8 +402,8 @@ const Home = () => {
                     )}
                 </section>
 
-                {/* NEW FEATURE 3: Loyalty Program */}
-                <section className="rounded-3xl p-12 shadow-2xl relative overflow-hidden ">
+                {/* Loyalty Program */}
+                <section className="rounded-3xl p-12 shadow-2xl relative overflow-hidden border border-gray-200 dark:border-gray-700">
                     <div className="absolute inset-0 opacity-10">
                         <div className="absolute top-0 left-0 w-full h-full">
                             <div className="absolute top-8 left-8 w-16 h-16 bg-yellow-400 rounded-full blur-xl animate-pulse"></div>
@@ -415,49 +414,49 @@ const Home = () => {
 
                     <div className="relative">
                         <div className="text-center mb-12">
-                            <div className="bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full w-24 h-24 flex items-center justify-center mx-auto mb-6">
+                            <div className="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full w-24 h-24 flex items-center justify-center mx-auto mb-6">
                                 <GiftOutlined className="text-4xl text-white" />
                             </div>
-                            <h2 className="text-5xl font-bold mb-4 text-gray-800 dark:text-white">🎁 VIP Loyalty Program</h2>
-                            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                            <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">🎁 VIP Loyalty Program</h2>
+                            <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
                                 Join our exclusive loyalty program and earn points with every camp booking. More camps = More rewards!
                             </p>
                         </div>
 
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-                            <Card className=" border  transition-all duration-300 hover:-translate-y-2 text-center text-gray-800">
+                            <Card className="border transition-all duration-300 hover:-translate-y-2 text-center text-gray-800">
                                 <div className="text-6xl mb-4">🥉</div>
-                                <h3 className="text-2xl font-bold mb-4">Bronze Level</h3>
+                                <h3 className="text-xl font-bold mb-4">Bronze Level</h3>
                                 <div className="space-y-2 text-left">
                                     <div>✅ 5% cashback on all bookings</div>
                                     <div>✅ Priority customer support</div>
                                     <div>✅ Monthly health newsletters</div>
                                 </div>
-                                <div className="mt-6 bg-gradient-to-r from-yellow-600 to-orange-600 rounded-lg p-3">
-                                    <span className="font-bold">0-2 Camps Required</span>
+                                <div className="mt-6 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-lg p-3">
+                                    <span className="font-bold text-white">0-2 Camps Required</span>
                                 </div>
                             </Card>
 
-                            <Card className="  transition-all duration-300 hover:-translate-y-2 text-center border-2 border-yellow-400 text-gray-800">
-                                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-yellow-400 text-black px-4 py-1 rounded-full text-sm font-bold">
+                            <Card className="transition-all duration-300 hover:-translate-y-2 text-center border-2 border-blue-400 text-gray-800">
+                                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-blue-600 text-white px-4 py-1 rounded-full text-sm font-bold">
                                     MOST POPULAR
                                 </div>
                                 <div className="text-6xl mb-4">🥈</div>
-                                <h3 className="text-2xl font-bold mb-4">Silver Level</h3>
+                                <h3 className="text-xl font-bold mb-4">Silver Level</h3>
                                 <div className="space-y-2 text-left">
                                     <div>✅ 10% cashback on all bookings</div>
                                     <div>✅ Free health consultations</div>
                                     <div>✅ Early access to new camps</div>
                                     <div>✅ Exclusive member-only events</div>
                                 </div>
-                                <div className="mt-6 bg-gradient-to-r from-gray-400 to-gray-600 rounded-lg p-3">
-                                    <span className="font-bold">3-5 Camps Required</span>
+                                <div className="mt-6 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-lg p-3">
+                                    <span className="font-bold text-white">3-5 Camps Required</span>
                                 </div>
                             </Card>
 
-                            <Card className=" transition-all duration-300 hover:-translate-y-2 text-center text-gray-800">
+                            <Card className="transition-all duration-300 hover:-translate-y-2 text-center text-gray-800">
                                 <div className="text-6xl mb-4">🥇</div>
-                                <h3 className="text-2xl font-bold mb-4">Gold Level</h3>
+                                <h3 className="text-xl font-bold mb-4">Gold Level</h3>
                                 <div className="space-y-2 text-left">
                                     <div>✅ 20% cashback on all bookings</div>
                                     <div>✅ Free premium health checkups</div>
@@ -465,8 +464,8 @@ const Home = () => {
                                     <div>✅ VIP camp experiences</div>
                                     <div>✅ Partner clinic discounts</div>
                                 </div>
-                                <div className="mt-6 bg-gradient-to-r from-yellow-500 to-yellow-700 rounded-lg p-3">
-                                    <span className="font-bold">6+ Camps Required</span>
+                                <div className="mt-6 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-lg p-3">
+                                    <span className="font-bold text-white">6+ Camps Required</span>
                                 </div>
                             </Card>
                         </div>
@@ -475,21 +474,21 @@ const Home = () => {
                             <Button
                                 type="primary"
                                 size="large"
-                                className="bg-gradient-to-r from-yellow-500 to-orange-600 border-0 px-12 py-6 h-auto text-2xl font-bold hover:from-yellow-600 hover:to-orange-700 shadow-2xl hover:shadow-yellow-500/50 transition-all duration-300 hover:scale-110 rounded-full"
+                                className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white text-lg font-semibold px-8 py-4 h-auto rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 inline-flex items-center space-x-2"
                                 icon={<GiftOutlined />}
                             >
-                                🎯 Join Loyalty Program FREE!
+                                <span>🎯 Join Loyalty Program FREE!</span>
                             </Button>
                         </div>
                     </div>
                 </section>
 
-                <section className="rounded-3xl p-12 shadow-2xl ">
+                <section className="rounded-3xl p-12 shadow-2xl border border-gray-200 dark:border-gray-700">
                     <div className="text-center mb-12">
                         <BookOutlined className="text-6xl mb-6 text-gray-600" />
-                        <h2 className="text-4xl font-bold mb-4 text-gray-800 dark:text-white">Health Resources</h2>
-                        <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-                            Explore valuable resources for your well-being, updated as of 12:57 PM +06, Sunday, July 20, 2025
+                        <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Health Resources</h2>
+                        <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                            Explore valuable resources for your well-being, updated as of 10:27 PM +06, Saturday, August 16, 2025
                         </p>
                     </div>
 
@@ -533,11 +532,11 @@ const Home = () => {
                         <Button
                             type="primary"
                             size="large"
-                            className="bg-blue-600 text-white border-0 px-8 py-6 h-auto text-lg font-semibold hover:bg-blue-700 shadow-lg hover:shadow-xl transition-all duration-300"
+                            className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white text-lg font-semibold px-8 py-4 h-auto rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 inline-flex items-center space-x-2"
                             icon={<ArrowRightOutlined />}
                             onClick={() => navigate("/health-resources")}
                         >
-                            Explore All Resources
+                            <span>Explore All Resources</span>
                         </Button>
                     </div>
                 </section>

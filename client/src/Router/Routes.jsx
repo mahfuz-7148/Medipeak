@@ -19,6 +19,8 @@ import ParticipantProfile from '../Pages/Dashboard/ParticipantDashboard/Particip
 import Forbidden from '../Pages/Forbidden.jsx';
 import PrivateRoute from './PrivateRoute.jsx';
 import AdminRoute from './AdminRoute.jsx';
+import About from '../Pages/About.jsx';
+import Contact from '../Pages/Contact.jsx';
 
 
 
@@ -46,6 +48,14 @@ export const router = createBrowserRouter([
             {
                 path: '/register',
                 Component: Register
+            },
+            {
+                path: '/about',
+                Component: About
+            },
+            {
+                path: '/contact',
+                Component: Contact
             },
             {
                 path: '/forbidden',

@@ -15,7 +15,7 @@ import {
     HomeOutlined,
     UserAddOutlined,
     LoginOutlined,
-    MenuOutlined
+    MenuOutlined, InfoCircleOutlined, MessageOutlined
 } from '@ant-design/icons';
 import clsx from 'clsx';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -94,6 +94,18 @@ const Navbar = () => {
 
     const navLinks = [
         { key: 'home', path: '/', label: 'Home', icon: <HomeOutlined /> },
+        { 
+            key: 'about', 
+            path: '/about', 
+            label: 'About',
+            icon: <InfoCircleOutlined />
+        },
+        { 
+            key: 'contact', 
+            path: '/contact', 
+            label: 'Contact',
+            icon: <MessageOutlined />
+        },
         saveUser && {
             key: 'items',
             path: '/available-camps',
