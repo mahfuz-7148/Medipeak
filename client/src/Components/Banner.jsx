@@ -63,13 +63,7 @@ export default function Banner() {
         <>
             {/* Banner Section */}
             <div
-                className="relative overflow-hidden"
-                style={{
-                    width: '100vw',
-                    height: '100vh',
-                    marginLeft: 'calc(-50vw + 50%)',
-                    marginRight: 'calc(-50vw + 50%)',
-                }}
+                className="relative w-full h-screen overflow-hidden"
                 onMouseEnter={() => setIsPaused(true)}
                 onMouseLeave={() => setIsPaused(false)}
             >
@@ -149,7 +143,6 @@ export default function Banner() {
                 </div>
             </div>
 
-
             <style jsx>{`
                 @keyframes slideIn {
                     from {
@@ -161,7 +154,7 @@ export default function Banner() {
                         transform: translateY(0);
                     }
                 }
-                
+
                 @keyframes bounceIn {
                     from {
                         opacity: 0;
@@ -172,16 +165,16 @@ export default function Banner() {
                         transform: scale(1);
                     }
                 }
-                
+
                 .animate-slideIn {
                     animation: slideIn 0.8s ease-out;
                 }
-                
+
                 .animate-bounceIn {
                     animation: bounceIn 0.6s ease-out;
                 }
 
-                /* Ensure smooth scrolling */
+                /* Remove body overflow-x hidden since banner is now contained */
                 html {
                     scroll-behavior: smooth;
                 }
