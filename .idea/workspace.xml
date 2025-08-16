@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6d7d0295-2cb1-4869-b767-c894c303bedd" name="Changes" comment="updated banner">
+    <list default="true" id="6d7d0295-2cb1-4869-b767-c894c303bedd" name="Changes" comment="updated banner and home">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Components/Navbar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Components/Navbar.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Pages/Home.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Pages/Home.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +48,8 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "com.github.sale.myaicodes.settings.CodeAssistSettingsConfigurable"
+    "settings.editor.selected.configurable": "com.github.sale.myaicodes.settings.CodeAssistSettingsConfigurable",
+    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2025.1.4.1\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external"
   }
 }]]></component>
   <component name="SharedIndexes">
@@ -65,7 +66,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1755321207596</updated>
-      <workItem from="1755321209701" duration="6085000" />
+      <workItem from="1755321209701" duration="11873000" />
     </task>
     <task id="LOCAL-00001" summary="updated theme">
       <option name="closed" value="true" />
@@ -91,7 +92,23 @@
       <option name="project" value="LOCAL" />
       <updated>1755328857111</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="updated navbar">
+      <option name="closed" value="true" />
+      <created>1755329478975</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1755329478975</updated>
+    </task>
+    <task id="LOCAL-00005" summary="updated banner and home">
+      <option name="closed" value="true" />
+      <created>1755333806498</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1755333806499</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -110,8 +127,9 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="updated theme" />
-    <MESSAGE value="updated navbar" />
     <MESSAGE value="updated banner" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated banner" />
+    <MESSAGE value="updated navbar" />
+    <MESSAGE value="updated banner and home" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated banner and home" />
   </component>
 </project>
