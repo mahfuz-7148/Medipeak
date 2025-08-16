@@ -12,6 +12,7 @@ const CampDetails = () => {
     const { saveUser } = useAuth();
     const navigate = useNavigate();
     const queryClient = useQueryClient();
+    
 
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [formData, setFormData] = useState({
@@ -30,6 +31,8 @@ const CampDetails = () => {
             return res.data;
         },
     });
+
+    
 
     const registerMutation = useMutation({
         mutationFn: async (data) => {
