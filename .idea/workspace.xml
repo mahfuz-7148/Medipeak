@@ -4,14 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6d7d0295-2cb1-4869-b767-c894c303bedd" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Contexts/ThemeContext.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Contexts/ThemeContext.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Pages/CampDetails.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Pages/CampDetails.jsx" afterDir="false" />
+    <list default="true" id="6d7d0295-2cb1-4869-b767-c894c303bedd" name="Changes" comment="updated theme">
+      <change beforePath="$PROJECT_DIR$/client/src/Components/Navbar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Components/Navbar.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,11 +64,35 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1755321207596</updated>
-      <workItem from="1755321209701" duration="1175000" />
+      <workItem from="1755321209701" duration="3213000" />
     </task>
+    <task id="LOCAL-00001" summary="updated theme">
+      <option name="closed" value="true" />
+      <created>1755324023554</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1755324023554</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="updated theme" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated theme" />
   </component>
 </project>

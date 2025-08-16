@@ -25,12 +25,24 @@ const Navbar = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const [isScrolled, setIsScrolled] = useState(false);
+    const [showNavbar, setShowNavbar] = useState(true);
+    const lastScrollY = useRef(0);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const dropdownRef = useRef(null);
     const avatarRef = useRef(null);
 
     useEffect(() => {
-        const handleScroll = () => setIsScrolled(window.scrollY > 20);
+        const handleScroll = () => {
+            const currentScrollY = window.scrollY;
+            if (currentScrollY > lastScrollY.current && currentScrollY > 100) {
+                setShowNavbar(false);
+            } else {
+                setShowNavbar(true);
+            }
+            setIsScrolled(currentScrollY > 20);
+            lastScrollY.current = currentScrollY;
+        };
+
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
@@ -41,7 +53,7 @@ const Navbar = () => {
                 dropdownRef.current && !dropdownRef.current.contains(e.target) &&
                 avatarRef.current && !avatarRef.current.contains(e.target)
             ) {
-                // কাস্টম কোড (আপনার প্রয়োজন অনুযায়ী)
+
             }
         };
         document.addEventListener('mousedown', handleClickOutside);
@@ -135,7 +147,14 @@ const Navbar = () => {
 
     return (
         <>
-            <header className={`bg-white dark:bg-neutral-900 backdrop-blur-md border-b px-6 py-0 flex items-center justify-between sticky top-0 z-50 h-16 ${isScrolled ? 'shadow-md' : ''}`}>
+            <header className={clsx(
+                'bg-white dark:bg-neutral-900 backdrop-blur-md border-b px-6 py-0 flex items-center justify-between sticky top-0 z-50 h-16 transition-transform duration-300',
+                {
+                    'shadow-md': isScrolled,
+                    'translate-y-0': showNavbar,
+                    '-translate-y-full': !showNavbar,
+                }
+            )}>
                 <Link to="/" className="flex items-center gap-3 group">
                     <div className="w-10 h-10 bg-gradient-to-br from-emerald-600 via-teal-600 to-cyan-700 rounded-lg shadow-md flex items-center justify-center relative overflow-hidden">
                         <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/20 via-transparent to-cyan-600/20 rounded-lg"></div>
@@ -158,11 +177,11 @@ const Navbar = () => {
                                     key === 'home'
                                         ? isActiveLink(path)
                                             ? 'bg-gradient-to-r from-emerald-500 to-cyan-600 text-white shadow-md border border-emerald-400 px-5 py-2 rounded-xl'
-                                            : 'text-gray-700 dark:text-gray-300 hover:text-emerald-600'
+                                            : 'text-gray-700 dark:text-gray-300 hover:bg-[#27272a] hover:text-[#34d399]'
                                         : isActiveLink(path)
                                             ? 'bg-gradient-to-r from-emerald-500 to-cyan-600 text-white shadow-md border border-emerald-400'
-                                            : key === 'register'
-                                                ? 'text-black dark:text-white'
+                                            : key === 'login' || key === 'register'
+                                                ? 'text-gray-700 dark:text-gray-300 hover:bg-[#27272a] hover:text-[#34d399]'
                                                 : 'text-gray-700 dark:text-gray-300 hover:bg-emerald-50 dark:hover:bg-neutral-800 hover:text-emerald-600'
                                 )}
                             >
@@ -290,7 +309,7 @@ const Navbar = () => {
                                         )}
                                     </>
                                 ) : (
-                                  ''
+                                    ''
                                 )}
                             </div>
                         </motion.nav>
