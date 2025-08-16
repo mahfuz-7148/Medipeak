@@ -34,17 +34,35 @@ const Navbar = () => {
     useEffect(() => {
         const handleScroll = () => {
             const currentScrollY = window.scrollY;
+
+            // Show/hide navbar based on scroll direction
             if (currentScrollY > lastScrollY.current && currentScrollY > 100) {
+                // Scrolling down and past threshold - hide navbar
                 setShowNavbar(false);
             } else {
+                // Scrolling up or at top - show navbar
                 setShowNavbar(true);
             }
+
+            // Add shadow when scrolled
             setIsScrolled(currentScrollY > 20);
+
             lastScrollY.current = currentScrollY;
         };
 
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
+        let ticking = false;
+        const smoothHandleScroll = () => {
+            if (!ticking) {
+                requestAnimationFrame(() => {
+                    handleScroll();
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        };
+
+        window.addEventListener('scroll', smoothHandleScroll, { passive: true });
+        return () => window.removeEventListener('scroll', smoothHandleScroll);
     }, []);
 
     useEffect(() => {
@@ -53,7 +71,7 @@ const Navbar = () => {
                 dropdownRef.current && !dropdownRef.current.contains(e.target) &&
                 avatarRef.current && !avatarRef.current.contains(e.target)
             ) {
-
+                // Handle outside click if needed
             }
         };
         document.addEventListener('mousedown', handleClickOutside);
@@ -80,7 +98,6 @@ const Navbar = () => {
             key: 'items',
             path: '/available-camps',
             label: 'Available Camps',
-
         },
         !saveUser && {
             key: 'register',
@@ -148,11 +165,12 @@ const Navbar = () => {
     return (
         <>
             <header className={clsx(
-                'bg-white dark:bg-neutral-900 backdrop-blur-md border-b px-6 py-0 flex items-center justify-between sticky top-0 z-50 h-16 transition-transform duration-300',
+                'fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-neutral-900/80 backdrop-blur-md border-b px-6 py-0 flex items-center justify-between h-16 transition-all duration-300 ease-in-out',
                 {
-                    'shadow-md': isScrolled,
-                    'translate-y-0': showNavbar,
-                    '-translate-y-full': !showNavbar,
+                    'shadow-lg border-gray-200 dark:border-neutral-700': isScrolled,
+                    'border-transparent': !isScrolled,
+                    'transform translate-y-0 opacity-100 visible': showNavbar,
+                    'transform -translate-y-full opacity-0 invisible': !showNavbar,
                 }
             )}>
                 <Link to="/" className="flex items-center gap-3 group">
@@ -177,7 +195,7 @@ const Navbar = () => {
                                     key === 'home'
                                         ? isActiveLink(path)
                                             ? 'bg-gradient-to-r from-emerald-500 to-cyan-600 text-white shadow-md border border-emerald-400 px-5 py-2 rounded-xl'
-                                            : 'text-gray-700 dark:text-gray-300 hover:bg-[#27272a] hover:text-[#34d399]'
+                                            : 'text-gray-700 dark:text-gray-300 hover:bg-[#27272a] hover:text-[#34d399] px-5 py-2 rounded-xl'
                                         : isActiveLink(path)
                                             ? 'bg-gradient-to-r from-emerald-500 to-cyan-600 text-white shadow-md border border-emerald-400'
                                             : key === 'login' || key === 'register'
@@ -224,6 +242,9 @@ const Navbar = () => {
                 </div>
             </header>
 
+            {/* Add padding to prevent content from hiding behind fixed navbar */}
+            <div className="h-16"></div>
+
             {/* Animated Mobile Drawer */}
             <AnimatePresence>
                 {mobileMenuOpen && (
@@ -266,7 +287,6 @@ const Navbar = () => {
                                     icon={<AiOutlineClose className="fill-current" />}
                                 />
                             </div>
-
 
                             <div className="flex flex-col gap-4 overflow-y-auto">
                                 {navLinks.map(({ key, path, label, icon }) => (
