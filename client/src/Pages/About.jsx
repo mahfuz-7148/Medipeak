@@ -1,11 +1,15 @@
-import React from 'react';
-import { Card, Typography, Space, Divider } from 'antd';
-import { TeamOutlined, SafetyOutlined, HeartOutlined, EnvironmentOutlined, ClockCircleOutlined, PhoneOutlined, MailOutlined } from '@ant-design/icons';
-import { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import {
+    Users,
+    Shield,
+    Heart,
+    MapPin,
+    Clock,
+    Phone,
+    Mail
+} from 'lucide-react';
 
-const { Title, Text, Paragraph } = Typography;
-
-// Simple CountUp component since we don't have the library
+// Simple CountUp component
 const CountUp = ({ end, duration = 2, separator = ",", suffix = "", start = false }) => {
     const [count, setCount] = useState(0);
 
@@ -40,22 +44,19 @@ const CountUp = ({ end, duration = 2, separator = ",", suffix = "", start = fals
 const About = () => {
     const features = [
         {
-            icon: <TeamOutlined className="text-2xl" />,
+            icon: <Users className="w-8 h-8" />,
             title: 'Trusted Organizers',
             description: 'Verified professionals with a track record of quality service.',
-            color: 'emerald',
         },
         {
-            icon: <SafetyOutlined className="text-2xl" />,
+            icon: <Shield className="w-8 h-8" />,
             title: 'Quality & Safety',
             description: 'Standardized protocols and participant-first experiences.',
-            color: 'blue',
         },
         {
-            icon: <HeartOutlined className="text-2xl" />,
+            icon: <Heart className="w-8 h-8" />,
             title: 'Community Impact',
             description: 'Improving public health awareness through accessible camps.',
-            color: 'rose',
         },
     ];
 
@@ -103,7 +104,7 @@ const About = () => {
 
         return (
             <div ref={statRef} className="text-center p-4">
-                <div className="mb-3 text-4xl">{icon}</div>
+                <div className="mb-3 text-4xl flex justify-center">{icon}</div>
                 <p className={`text-4xl font-bold mb-2 ${color}`}>
                     <CountUp
                         end={numeric}
@@ -113,25 +114,25 @@ const About = () => {
                         start={isVisible}
                     />
                 </p>
-                <p className="text-gray-600 text-lg">{label}</p>
+                <p className="text-lg text-gray-600">{label}</p>
             </div>
         );
     };
 
     return (
-        <div className="min-h-screen bg-gray-50 transition-colors duration-300">
+        <div className="min-h-screen ">
             {/* Hero Section */}
-            <div className="bg-gradient-to-r from-blue-600 to-indigo-700 text-white py-16">
+            <div className=" text-white py-16">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                     <div className="inline-block px-3 py-1 mb-4 text-sm font-semibold text-blue-100 bg-blue-800/30 rounded-full backdrop-blur-sm">
                         About Our Mission
                     </div>
-                    <Title level={1} className="text-4xl md:text-5xl font-bold mb-6 text-white">
+                    <h1 className="text-4xl md:text-5xl font-bold mb-6 text-gray-800 dark:text-white">
                         Connecting Communities with Quality Healthcare
-                    </Title>
-                    <Paragraph className="text-xl text-blue-100 max-w-3xl mx-auto">
+                    </h1>
+                    <p className="text-xl text-gray-800 dark:text-white max-w-3xl mx-auto">
                         MediPeak is dedicated to making preventive healthcare accessible to all through our network of trusted medical camps and healthcare professionals.
-                    </Paragraph>
+                    </p>
                 </div>
             </div>
 
@@ -140,45 +141,44 @@ const About = () => {
                 {/* Features Section */}
                 <section className="mb-24">
                     <div className="text-center mb-12">
-                        <Title level={2} className="text-3xl font-bold text-gray-900 mb-4">
+                        <h2 className="text-3xl font-bold mb-4 text-gray-900">
                             Why Choose MediPeak?
-                        </Title>
-                        <Divider className="w-24 mx-auto border-blue-500" />
+                        </h2>
+                        <div className="w-24 mx-auto h-1 bg-blue-500 rounded"></div>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                         {features.map((feature, index) => (
-                            <Card
+                            <div
                                 key={index}
-                                className="h-full border border-gray-200 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 bg-white"
+                                className="h-full border border-gray-200 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 p-6 bg-white"
                             >
-                                <div className={`w-16 h-16 rounded-2xl mb-6 flex items-center justify-center bg-blue-100 text-blue-600`}>
+                                <div className="w-16 h-16 rounded-2xl mb-6 flex items-center justify-center bg-blue-100 text-blue-600">
                                     {feature.icon}
                                 </div>
-                                <Title level={3} className="text-xl font-semibold text-gray-900 mb-3">
+                                <h3 className="text-xl font-semibold mb-3 text-gray-900">
                                     {feature.title}
-                                </Title>
-                                <Paragraph className="text-gray-600">
+                                </h3>
+                                <p className="text-gray-600">
                                     {feature.description}
-                                </Paragraph>
-                            </Card>
+                                </p>
+                            </div>
                         ))}
                     </div>
                 </section>
-
 
                 {/* Mission Section */}
                 <section className="mb-16">
                     <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-8 md:p-12">
                         <div className="max-w-4xl mx-auto">
                             <div className="text-center mb-8">
-                                <Title level={2} className="text-3xl font-bold text-gray-900 mb-4">
+                                <h2 className="text-3xl font-bold mb-4 text-gray-900">
                                     Our Mission & Vision
-                                </Title>
-                                <Divider className="w-24 mx-auto border-blue-500" />
+                                </h2>
+                                <div className="w-24 mx-auto h-1 bg-blue-500 rounded"></div>
                             </div>
 
-                            <div className="space-y-6 text-gray-700 text-lg">
+                            <div className="space-y-6 text-lg text-gray-700">
                                 <p>
                                     At MediPeak, we believe that quality healthcare should be accessible to everyone, regardless of their location or background.
                                     Our platform bridges the gap between healthcare providers and communities in need.
@@ -191,21 +191,21 @@ const About = () => {
 
                             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 my-12">
                                 <StatCard
-                                    icon={<TeamOutlined />}
+                                    icon={<Users className="w-10 h-10" />}
                                     value={1000}
                                     label="Happy Campers"
                                     color="text-blue-500"
                                     duration={2.5}
                                 />
                                 <StatCard
-                                    icon={<SafetyOutlined />}
+                                    icon={<Shield className="w-10 h-10" />}
                                     value={250}
                                     label="Successful Camps"
                                     color="text-green-500"
                                     duration={2.5}
                                 />
                                 <StatCard
-                                    icon={<HeartOutlined />}
+                                    icon={<Heart className="w-10 h-10" />}
                                     value={5}
                                     label="Years of Experience"
                                     color="text-purple-500"
@@ -216,31 +216,38 @@ const About = () => {
                             <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
                                 {[
                                     {
-                                        icon: <EnvironmentOutlined className="text-blue-500" />,
+                                        icon: <MapPin className="w-6 h-6 text-blue-500" />,
                                         title: 'Our Location',
                                         text: '123 Health Street, Medical District, City'
                                     },
                                     {
-                                        icon: <ClockCircleOutlined className="text-blue-500" />,
+                                        icon: <Clock className="w-6 h-6 text-blue-500" />,
                                         title: 'Working Hours',
                                         text: 'Mon - Fri: 9:00 AM - 6:00 PM'
                                     },
                                     {
-                                        icon: <PhoneOutlined className="text-blue-500" />,
+                                        icon: <Phone className="w-6 h-6 text-blue-500" />,
                                         title: 'Contact Us',
                                         text: '+1 (555) 123-4567',
                                         email: 'info@medipeak.com'
                                     }
                                 ].map((item, index) => (
-                                    <div key={index} className="bg-white p-6 rounded-xl shadow-sm">
+                                    <div
+                                        key={index}
+                                        className="bg-white p-6 rounded-xl shadow-sm"
+                                    >
                                         <div className="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center mb-4">
                                             {item.icon}
                                         </div>
-                                        <h4 className="text-lg font-semibold text-gray-900 mb-2">{item.title}</h4>
-                                        <p className="text-gray-600">{item.text}</p>
+                                        <h4 className="text-lg font-semibold mb-2 text-gray-900">
+                                            {item.title}
+                                        </h4>
+                                        <p className="text-gray-600">
+                                            {item.text}
+                                        </p>
                                         {item.email && (
-                                            <p className="text-blue-500 mt-2">
-                                                <MailOutlined className="mr-2" />
+                                            <p className="mt-2 flex items-center gap-2 text-blue-500">
+                                                <Mail className="w-4 h-4" />
                                                 {item.email}
                                             </p>
                                         )}
@@ -251,13 +258,13 @@ const About = () => {
                     </div>
                 </section>
 
-                {/* Team Section */}
+                {/* Core Values Section */}
                 <section>
                     <div className="text-center mb-12">
-                        <Title level={2} className="text-3xl font-bold text-gray-900 mb-4">
+                        <h2 className="text-3xl font-bold mb-4 text-gray-900">
                             Our Core Values
-                        </Title>
-                        <Divider className="w-24 mx-auto border-blue-500" />
+                        </h2>
+                        <div className="w-24 mx-auto h-1 bg-blue-500 rounded"></div>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -279,22 +286,22 @@ const About = () => {
                                 description: 'We believe in the power of community to drive positive health outcomes.'
                             }
                         ].map((value, index) => (
-                            <Card
+                            <div
                                 key={index}
                                 className="border border-gray-200 rounded-xl hover:shadow-md transition-shadow duration-300 bg-white"
                             >
                                 <div className="text-center p-4">
                                     <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-blue-50 flex items-center justify-center text-blue-500">
-                                        {index + 1}
+                                        <span className="text-xl font-bold">{index + 1}</span>
                                     </div>
-                                    <Title level={4} className="text-lg font-semibold text-gray-900 mb-2">
+                                    <h4 className="text-lg font-semibold mb-2 text-gray-900">
                                         {value.title}
-                                    </Title>
-                                    <Paragraph className="text-gray-600">
+                                    </h4>
+                                    <p className="text-gray-600">
                                         {value.description}
-                                    </Paragraph>
+                                    </p>
                                 </div>
-                            </Card>
+                            </div>
                         ))}
                     </div>
                 </section>

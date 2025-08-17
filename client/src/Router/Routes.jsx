@@ -21,6 +21,7 @@ import PrivateRoute from './PrivateRoute.jsx';
 import AdminRoute from './AdminRoute.jsx';
 import About from '../Pages/About.jsx';
 import Contact from '../Pages/Contact.jsx';
+import Overview from '../Pages/Dashboard/Overview.jsx';
 
 
 
@@ -69,6 +70,12 @@ export const router = createBrowserRouter([
             <DashboardLayout />
         </PrivateRoute>,
         children: [
+            {
+                index: true,
+                element: <PrivateRoute>
+                    <Overview />
+                </PrivateRoute>
+            },
             {
                 path: 'organizer-profile',
                 element: <AdminRoute>

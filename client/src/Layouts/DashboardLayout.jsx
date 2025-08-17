@@ -39,9 +39,9 @@ const DashboardLayout = () => {
     // Fixed menu items array structure
     const menuItems = [
         {
-            key: '/',
+            key: '/dashboard',
             icon: <HomeOutlined />,
-            label: <NavLink to="/">Home</NavLink>, // Fixed path
+            label: <NavLink to="/dashboard">Home</NavLink>, // Fixed path
         },
         // Fixed conditional rendering
         ...((!roleLoading && role === 'admin') ? [{
@@ -90,6 +90,7 @@ const DashboardLayout = () => {
     return (
         <Layout style={{ minHeight: '100vh' }}>
             {/* Desktop Sidebar */}
+
             <Sider
                 collapsible
                 collapsed={collapsed}
@@ -181,7 +182,7 @@ const DashboardLayout = () => {
                         <Title level={4} style={{ margin: 0, whiteSpace: 'nowrap' }}>
                             Dashboard
                         </Title>
-                        <ThemeContext />
+
                     </div>
 
                     {/* Desktop Toggle Button */}
