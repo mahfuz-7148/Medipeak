@@ -110,6 +110,18 @@ const Navbar = () => {
             key: 'items',
             path: '/available-camps',
             label: 'Available Camps',
+            icon: <UnorderedListOutlined />
+        },
+        saveUser &&  {
+            key: 'dashboard',
+            label: (
+                <Link to="/dashboard" className="flex items-center gap-3 py-1">
+                    <div className="w-8 h-8 bg-blue-100 dark:bg-blue-800 rounded-md flex items-center justify-center">
+                        <PlusOutlined className="text-blue-600 dark:text-blue-300" />
+                    </div>
+                    <span>Dashboard</span>
+                </Link>
+            ),
         },
         !saveUser && {
             key: 'register',
@@ -126,17 +138,7 @@ const Navbar = () => {
     ].filter(Boolean);
 
     const userMenuItems = [
-        {
-            key: 'dashboard',
-            label: (
-                <Link to="/dashboard" className="flex items-center gap-3 py-1">
-                    <div className="w-8 h-8 bg-blue-100 dark:bg-blue-800 rounded-md flex items-center justify-center">
-                        <PlusOutlined className="text-blue-600 dark:text-blue-300" />
-                    </div>
-                    <span>Dashboard</span>
-                </Link>
-            ),
-        },
+
         { type: 'divider' },
         {
             key: 'logout',
