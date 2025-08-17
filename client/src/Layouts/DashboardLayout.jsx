@@ -152,12 +152,12 @@ const DashboardLayout = () => {
                     right: 0,
                     zIndex: 1
                 }}>
-                    <Button 
-                        block 
-                        type="primary" 
-                        icon={<HomeOutlined />} 
+                    <Button
+                        block
+                        type="primary"
+                        icon={<HomeOutlined />}
                         onClick={handleBackToHome}
-                        style={{ 
+                        style={{
                             marginBottom: '8px',
                             textAlign: 'left',
                             padding: '8px 16px',
@@ -169,10 +169,10 @@ const DashboardLayout = () => {
                     >
                         {!collapsed && 'Back to Home'}
                     </Button>
-                    <Button 
-                        block 
-                        type="primary" 
-                        icon={<LogoutOutlined />} 
+                    <Button
+                        block
+                        type="primary"
+                        icon={<LogoutOutlined />}
                         onClick={handleLogout}
                         style={{
                             textAlign: 'left',
@@ -243,31 +243,6 @@ const DashboardLayout = () => {
                             display: 'block'
                         }}
                     />
-
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-
-                            <Button
-                                type="text"
-                                icon={<HomeOutlined />}
-                                onClick={handleBackToHome}
-                                style={{ marginRight: '8px' }}
-                            >
-                                Back to Home
-                            </Button>
-
-
-                    </div>
-
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                        <Button
-                            type="text"
-                            icon={<LogoutOutlined />}
-                            onClick={handleLogout}
-                            danger
-                        >
-                            Logout
-                        </Button>
-                    </div>
 
 
                     {/* Desktop Toggle Button */}

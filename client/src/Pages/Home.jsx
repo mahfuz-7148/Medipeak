@@ -165,7 +165,7 @@ const Home = () => {
 
                                             <button
                                                 className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white text-lg font-semibold py-4 px-8 rounded-lg transition-all duration-300 flex items-center justify-center space-x-2 mt-auto"
-                                                onClick={() => navigate(`/camp/${camp._id}`)}
+                                                onClick={() => navigate(`/camps/${camp._id}`)}
                                             >
                                                 <span>Learn More</span>
                                                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -470,16 +470,7 @@ const Home = () => {
                             </Card>
                         </div>
 
-                        <div className="text-center">
-                            <Button
-                                type="primary"
-                                size="large"
-                                className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white text-lg font-semibold px-8 py-4 h-auto rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 inline-flex items-center space-x-2"
-                                icon={<GiftOutlined />}
-                            >
-                                <span>🎯 Join Loyalty Program FREE!</span>
-                            </Button>
-                        </div>
+
                     </div>
                 </section>
 
@@ -528,17 +519,7 @@ const Home = () => {
                         ))}
                     </div>
 
-                    <div className="text-center mt-12">
-                        <Button
-                            type="primary"
-                            size="large"
-                            className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white text-lg font-semibold px-8 py-4 h-auto rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 inline-flex items-center space-x-2"
-                            icon={<ArrowRightOutlined />}
-                            onClick={() => navigate("/health-resources")}
-                        >
-                            <span>Explore All Resources</span>
-                        </Button>
-                    </div>
+
                 </section>
             </div>
         </div>

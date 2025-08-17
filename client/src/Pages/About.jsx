@@ -141,7 +141,7 @@ const About = () => {
                 {/* Features Section */}
                 <section className="mb-24">
                     <div className="text-center mb-12">
-                        <h2 className="text-3xl font-bold mb-4 text-gray-900">
+                        <h2 className="text-3xl font-bold mb-4 text-gray-900 dark:text-white">
                             Why Choose MediPeak?
                         </h2>
                         <div className="w-24 mx-auto h-1 bg-blue-500 rounded"></div>
@@ -261,7 +261,7 @@ const About = () => {
                 {/* Core Values Section */}
                 <section>
                     <div className="text-center mb-12">
-                        <h2 className="text-3xl font-bold mb-4 text-gray-900">
+                        <h2 className="text-3xl font-bold mb-4 text-gray-900 dark:text-white">
                             Our Core Values
                         </h2>
                         <div className="w-24 mx-auto h-1 bg-blue-500 rounded"></div>

@@ -80,7 +80,7 @@ const CampDetails = () => {
     return (
         <section className="max-w-6xl min-h-screen mx-auto px-4 py-12">
             <Helmet><title>{camp.campName} - Details</title></Helmet>
-            <h2 className="text-3xl font-bold mb-8 text-center">{camp.campName}</h2>
+            <h2 className="text-3xl dark:text-white font-bold mb-8 text-center">{camp.campName}</h2>
             <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 border border-gray-200 dark:border-gray-700 max-w-3xl mx-auto">
                 <img src={camp.image} alt={camp.campName} className="w-full h-64 object-cover rounded-lg mb-6" />
                 <p className="text-gray-600 dark:text-gray-400 mb-2"><strong>Date & Time:</strong> {new Date(camp.dateTime).toLocaleString()}</p>
@@ -96,21 +96,139 @@ const CampDetails = () => {
             </div>
             {isModalOpen && (
                 <div className="fixed inset-0 z-50 bg-black bg-opacity-50 flex items-center justify-center p-4">
-                    <div className="bg-white dark:bg-gray-900 rounded-lg shadow-lg max-w-xl w-full p-6 relative">
-                        <h3 className="text-2xl font-bold mb-4 text-gray-800 dark:text-gray-200">Register for Camp</h3>
-                        <form onSubmit={handleRegister} className="space-y-4">
-                            <div><label className="block font-semibold text-gray-700 dark:text-gray-300">Camp Name</label><input type="text" readOnly value={camp.campName} className="w-full p-2 bg-gray-200 dark:bg-gray-700 rounded" /></div>
-                            <div><label className="block font-semibold text-gray-700 dark:text-gray-300">Camp Fees</label><input type="text" readOnly value={`$${camp.campFees.toFixed(2)}`} className="w-full p-2 bg-gray-200 dark:bg-gray-700 rounded" /></div>
-                            <div><label className="block font-semibold text-gray-700 dark:text-gray-300">Location</label><input type="text" readOnly value={camp.location} className="w-full p-2 bg-gray-200 dark:bg-gray-700 rounded" /></div>
-                            <div><label className="block font-semibold text-gray-700 dark:text-gray-300">Healthcare Professional</label><input type="text" readOnly value={camp.healthcareProfessionalName || 'N/A'} className="w-full p-2 bg-gray-200 dark:bg-gray-700 rounded" /></div>
-                            <div><label className="block font-semibold text-gray-700 dark:text-gray-300">Participant Name</label><input type="text" name="participantName" value={formData.participantName} onChange={(e) => setFormData((prev) => ({ ...prev, participantName: e.target.value }))} className="w-full p-2 rounded border border-gray-300 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-200" required /></div>
-                            <div><label className="block font-semibold text-gray-700 dark:text-gray-300">Participant Email</label><input type="email" name="participantEmail" value={formData.participantEmail} readOnly className="w-full p-2 rounded border border-gray-300 dark:border-gray-600 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300" required /></div>
-                            <div><label className="block font-semibold text-gray-700 dark:text-gray-300">Age</label><input type="number" name="age" value={formData.age} onChange={(e) => setFormData((prev) => ({ ...prev, age: e.target.value }))} className="w-full p-2 rounded border border-gray-300 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-200" required min={0} /></div>
-                            <div><label className="block font-semibold text-gray-700 dark:text-gray-300">Phone Number</label><input type="tel" name="phoneNumber" value={formData.phoneNumber} onChange={(e) => setFormData((prev) => ({ ...prev, phoneNumber: e.target.value }))} className="w-full p-2 rounded border border-gray-300 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-200" required /></div>
-                            <div><label className="block font-semibold text-gray-700 dark:text-gray-300">Gender</label><select name="gender" value={formData.gender} onChange={(e) => setFormData((prev) => ({ ...prev, gender: e.target.value }))} className="w-full p-2 rounded border border-gray-300 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-200" required><option value="">Select Gender</option><option value="Male">Male</option><option value="Female">Female</option><option value="Other">Other</option></select></div>
-                            <div><label className="block font-semibold text-gray-700 dark:text-gray-300">Emergency Contact</label><input type="tel" name="emergencyContact" value={formData.emergencyContact} onChange={(e) => setFormData((prev) => ({ ...prev, emergencyContact: e.target.value }))} className="w-full p-2 rounded border border-gray-300 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-200" required /></div>
-                            <div className="flex justify-end space-x-2 pt-4"><button type="button" onClick={() => setIsModalOpen(false)} className="px-4 py-2 rounded bg-gray-300 dark:bg-gray-700 hover:bg-gray-400 dark:hover:bg-gray-600 text-gray-900 dark:text-gray-100 font-semibold">Cancel</button><button type="submit" disabled={registerMutation.isLoading} className="px-4 py-2 rounded bg-blue-600 hover:bg-blue-700 text-white font-semibold disabled:opacity-50">{registerMutation.isLoading ? 'Registering...' : 'Register'}</button></div>
-                        </form>
+                    <div className="bg-white dark:bg-gray-900 rounded-lg shadow-lg max-w-xl w-full max-h-[90vh] flex flex-col">
+                        <div className="p-6 pb-4 border-b border-gray-200 dark:border-gray-700">
+                            <h3 className="text-2xl font-bold text-gray-800 dark:text-gray-200">Register for Camp</h3>
+                        </div>
+                        <div className="overflow-y-auto flex-1 p-6">
+                            <form onSubmit={handleRegister} className="space-y-4">
+                                <div className="space-y-4">
+                                    <label className="block font-semibold text-gray-700 dark:text-gray-200">Camp Name</label>
+                                    <input 
+                                        type="text" 
+                                        readOnly 
+                                        value={camp.campName} 
+                                        className="w-full p-2 bg-gray-100 dark:bg-gray-700 dark:text-gray-200 rounded border border-gray-300 dark:border-gray-600" 
+                                    />
+                                </div>
+                                <div className="space-y-4">
+                                    <label className="block font-semibold text-gray-700 dark:text-gray-200">Camp Fees</label>
+                                    <input 
+                                        type="text" 
+                                        readOnly 
+                                        value={`$${camp.campFees.toFixed(2)}`} 
+                                        className="w-full p-2 bg-gray-100 dark:bg-gray-700 dark:text-gray-200 rounded border border-gray-300 dark:border-gray-600" 
+                                    />
+                                </div>
+                                <div className="space-y-4">
+                                    <label className="block font-semibold text-gray-700 dark:text-gray-200">Location</label>
+                                    <input 
+                                        type="text" 
+                                        readOnly 
+                                        value={camp.location} 
+                                        className="w-full p-2 bg-gray-100 dark:bg-gray-700 dark:text-gray-200 rounded border border-gray-300 dark:border-gray-600" 
+                                    />
+                                </div>
+                                <div className="space-y-4">
+                                    <label className="block font-semibold text-gray-700 dark:text-gray-200">Healthcare Professional</label>
+                                    <input 
+                                        type="text" 
+                                        readOnly 
+                                        value={camp.healthcareProfessionalName || 'N/A'} 
+                                        className="w-full p-2 bg-gray-100 dark:bg-gray-700 dark:text-gray-200 rounded border border-gray-300 dark:border-gray-600" 
+                                    />
+                                </div>
+                                <div className="space-y-4">
+                                    <label className="block font-semibold text-gray-700 dark:text-gray-200">Participant Name</label>
+                                    <input 
+                                        type="text" 
+                                        name="participantName" 
+                                        value={formData.participantName} 
+                                        onChange={handleChange} 
+                                        className="w-full p-2 rounded border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-200" 
+                                        required 
+                                    />
+                                </div>
+                                <div className="space-y-4">
+                                    <label className="block font-semibold text-gray-700 dark:text-gray-200">Participant Email</label>
+                                    <input 
+                                        type="email" 
+                                        name="participantEmail" 
+                                        value={formData.participantEmail} 
+                                        readOnly 
+                                        className="w-full p-2 rounded border border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-700 dark:text-gray-200" 
+                                        required 
+                                    />
+                                </div>
+                                <div className="space-y-4">
+                                    <label className="block font-semibold text-gray-700 dark:text-gray-200">Age</label>
+                                    <input 
+                                        type="number" 
+                                        name="age" 
+                                        value={formData.age} 
+                                        onChange={handleChange} 
+                                        className="w-full p-2 rounded border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-200" 
+                                        required 
+                                        min={0} 
+                                    />
+                                </div>
+                                <div className="space-y-4">
+                                    <label className="block font-semibold text-gray-700 dark:text-gray-200">Phone Number</label>
+                                    <input 
+                                        type="tel" 
+                                        name="phoneNumber" 
+                                        value={formData.phoneNumber} 
+                                        onChange={handleChange} 
+                                        className="w-full p-2 rounded border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-200" 
+                                        required 
+                                    />
+                                </div>
+                                <div className="space-y-4">
+                                    <label className="block font-semibold text-gray-700 dark:text-gray-200">Gender</label>
+                                    <select 
+                                        name="gender" 
+                                        value={formData.gender} 
+                                        onChange={handleChange} 
+                                        className="w-full p-2 rounded border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-200" 
+                                        required
+                                    >
+                                        <option value="" className="dark:bg-gray-700">Select Gender</option>
+                                        <option value="Male" className="dark:bg-gray-700">Male</option>
+                                        <option value="Female" className="dark:bg-gray-700">Female</option>
+                                        <option value="Other" className="dark:bg-gray-700">Other</option>
+                                    </select>
+                                </div>
+                                <div className="space-y-4">
+                                    <label className="block font-semibold text-gray-700 dark:text-gray-200">Emergency Contact</label>
+                                    <input 
+                                        type="tel" 
+                                        name="emergencyContact" 
+                                        value={formData.emergencyContact} 
+                                        onChange={handleChange} 
+                                        className="w-full p-2 rounded border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-200" 
+                                        required 
+                                    />
+                                </div>
+                                <div className="sticky bottom-0 bg-white dark:bg-gray-900 pt-4 -mx-6 px-6 border-t border-gray-200 dark:border-gray-700">
+                                    <div className="flex justify-end space-x-2">
+                                        <button 
+                                            type="button" 
+                                            onClick={() => setIsModalOpen(false)} 
+                                            className="px-4 py-2 rounded bg-gray-300 dark:bg-gray-700 hover:bg-gray-400 dark:hover:bg-gray-600 text-gray-900 dark:text-gray-100 font-semibold"
+                                        >
+                                            Cancel
+                                        </button>
+                                        <button 
+                                            type="submit" 
+                                            disabled={registerMutation.isLoading} 
+                                            className="px-4 py-2 rounded bg-blue-600 hover:bg-blue-700 text-white font-semibold disabled:opacity-50"
+                                        >
+                                            {registerMutation.isLoading ? 'Registering...' : 'Register'}
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
             )}
