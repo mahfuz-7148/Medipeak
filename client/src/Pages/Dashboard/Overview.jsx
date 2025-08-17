@@ -1,16 +1,21 @@
 import React from 'react';
-import { Card, Row, Col, Typography, Statistic } from 'antd';
+import { Card, Row, Col, Typography } from 'antd';
 import { 
-  UserOutlined, 
-  MedicineBoxOutlined, 
   TeamOutlined, 
+  MedicineBoxOutlined, 
+  CalendarOutlined,
+  FileDoneOutlined,
   DollarOutlined,
   ArrowUpOutlined,
-  CalendarOutlined,
-  CheckCircleOutlined
+  UserOutlined
 } from '@ant-design/icons';
 import { Bar, Pie, Line } from 'react-chartjs-2';
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend, ArcElement, PointElement, LineElement } from 'chart.js';
+
+import { useQuery } from '@tanstack/react-query';
+import useAuth from '../../Hooks/useAuth.jsx';
+import useAxios from '../../Hooks/useAxios.jsx';
+
 
 // Register ChartJS components
 ChartJS.register(
@@ -28,7 +33,11 @@ ChartJS.register(
 const { Title: AntTitle, Text } = Typography;
 
 const StatCard = ({ title, value, icon, color, change }) => (
-  <Card style={{ borderRadius: '12px', boxShadow: '0 4px 12px rgba(0, 0, 0, 0.05)' }}>
+  <Card style={{ 
+    borderRadius: '12px', 
+    boxShadow: '0 4px 12px rgba(0, 0, 0, 0.05)',
+    height: '100%'
+  }}>
     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
       <div>
         <Text type="secondary" style={{ fontSize: '14px' }}>{title}</Text>
@@ -58,7 +67,19 @@ const StatCard = ({ title, value, icon, color, change }) => (
 );
 
 const Overview = () => {
-  // Sample data for charts
+  const { saveUser } = useAuth();
+  const axios = useAxios();
+
+  // Fetch dashboard data
+  const { data: dashboardData, isLoading } = useQuery({
+    queryKey: ['dashboard-stats'],
+    queryFn: async () => {
+      const res = await axios.get('/dashboard/stats');
+      return res.data;
+    }
+  });
+
+  // Sample data for charts (will be replaced with real data)
   const monthlyData = {
     labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug'],
     datasets: [
@@ -72,15 +93,16 @@ const Overview = () => {
   };
 
   const categoryData = {
-    labels: ['General', 'Specialized', 'Pediatric', 'Emergency'],
+    labels: ['General Health', 'Dental', 'Eye Care', 'Pediatric', 'Women\'s Health'],
     datasets: [
       {
-        data: [30, 25, 20, 25],
+        data: [30, 25, 20, 15, 10],
         backgroundColor: [
-          '#1890ff',
-          '#36cfc9',
-          '#faad14',
-          '#ff4d4f',
+          '#1890ff',  // Blue
+          '#36cfc9',  // Teal
+          '#722ed1',  // Purple
+          '#faad14',  // Gold
+          '#ff4d4f'   // Red
         ],
         borderWidth: 0,
       },
@@ -91,8 +113,8 @@ const Overview = () => {
     labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
     datasets: [
       {
-        label: 'Appointments',
-        data: [10, 25, 18, 30],
+        label: 'Patient Registrations',
+        data: [15, 22, 18, 30],
         borderColor: '#722ed1',
         backgroundColor: 'rgba(114, 46, 209, 0.1)',
         tension: 0.3,
@@ -132,16 +154,20 @@ const Overview = () => {
     },
   };
 
+
   return (
     <div style={{ padding: '24px' }}>
-      <AntTitle level={3} style={{ marginBottom: '24px' }}>Dashboard Overview</AntTitle>
+      <div className="mb-6">
+        <AntTitle level={3} style={{ margin: 0 }}>Welcome back, {saveUser?.displayName || 'User'}</AntTitle>
+        <Text type="secondary">Here's what's happening with your medical camps today</Text>
+      </div>
       
       {/* Stats Cards */}
       <Row gutter={[16, 16]} style={{ marginBottom: '24px' }}>
         <Col xs={24} sm={12} md={6}>
           <StatCard 
-            title="Total Participants" 
-            value="1,245" 
+            title="Total Patients" 
+            value={dashboardData?.totalPatients || '1,245'} 
             icon={<UserOutlined />} 
             color="#1890ff"
             change={12.5}
@@ -150,26 +176,26 @@ const Overview = () => {
         <Col xs={24} sm={12} md={6}>
           <StatCard 
             title="Upcoming Camps" 
-            value="24" 
+            value={dashboardData?.upcomingCamps || '8'} 
             icon={<CalendarOutlined />} 
             color="#36cfc9"
-            change={8.3}
-          />
-        </Col>
-        <Col xs={24} sm={12} md={6}>
-          <StatCard 
-            title="Active Volunteers" 
-            value="86" 
-            icon={<TeamOutlined />} 
-            color="#722ed1"
             change={5.2}
           />
         </Col>
         <Col xs={24} sm={12} md={6}>
           <StatCard 
+            title="Medical Staff" 
+            value={dashboardData?.medicalStaff || '42'} 
+            icon={<TeamOutlined />} 
+            color="#722ed1"
+            change={8.3}
+          />
+        </Col>
+        <Col xs={24} sm={12} md={6}>
+          <StatCard 
             title="Completed Camps" 
-            value="142" 
-            icon={<CheckCircleOutlined />} 
+            value={dashboardData?.completedCamps || '36'} 
+            icon={<FileDoneOutlined />} 
             color="#52c41a"
             change={15.7}
           />
@@ -179,12 +205,20 @@ const Overview = () => {
       {/* Charts Row 1 */}
       <Row gutter={[16, 16]} style={{ marginBottom: '24px' }}>
         <Col xs={24} lg={16}>
-          <Card title="Monthly Participation" style={{ borderRadius: '12px', height: '100%' }}>
+          <Card 
+            title="Monthly Patient Registration" 
+            style={{ borderRadius: '12px', height: '100%' }}
+            bodyStyle={{ padding: '16px' }}
+          >
             <Bar options={options} data={monthlyData} />
           </Card>
         </Col>
         <Col xs={24} lg={8}>
-          <Card title="Camp Categories" style={{ borderRadius: '12px', height: '100%' }}>
+          <Card 
+            title="Service Categories" 
+            style={{ borderRadius: '12px', height: '100%' }}
+            bodyStyle={{ padding: '16px' }}
+          >
             <div style={{ height: '300px' }}>
               <Pie data={categoryData} options={pieOptions} />
             </div>
@@ -195,7 +229,11 @@ const Overview = () => {
       {/* Charts Row 2 */}
       <Row gutter={[16, 16]}>
         <Col xs={24}>
-          <Card title="Weekly Appointments Trend" style={{ borderRadius: '12px' }}>
+          <Card 
+            title="Weekly Patient Registration Trend" 
+            style={{ borderRadius: '12px' }}
+            bodyStyle={{ padding: '16px' }}
+          >
             <Line options={options} data={lineData} />
           </Card>
         </Col>

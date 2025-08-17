@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { NavLink, Outlet, useLocation } from 'react-router';
+import {NavLink, Outlet, useLocation, useNavigate} from 'react-router';
 import { Layout, Menu, Drawer, Button, Typography } from 'antd';
 import {
     HomeOutlined,
@@ -10,10 +10,11 @@ import {
     BarChartOutlined,
     CreditCardOutlined,
     CalendarOutlined,
-    FileTextOutlined,
+    FileTextOutlined, LogoutOutlined,
 } from '@ant-design/icons';
-import ThemeContext from '../Contexts/ThemeContext.jsx';
 import useUserRole from '../Hooks/useUserRole.jsx';
+import {getAuth, signOut} from 'firebase/auth';
+import {app} from '../firebase.js';
 
 const { Sider, Header, Content } = Layout;
 const { Title } = Typography;
@@ -22,7 +23,24 @@ const DashboardLayout = () => {
     const [collapsed, setCollapsed] = useState(false);
     const [drawerVisible, setDrawerVisible] = useState(false);
     const location = useLocation();
+    const navigate = useNavigate();
+    const auth = getAuth(app);
     const { role, roleLoading } = useUserRole();
+
+    const handleLogout = async () => {
+        try {
+            await signOut(auth);
+            // Clear any user data from state/context if needed
+            navigate('/login');
+        } catch (error) {
+            console.error('Error signing out:', error);
+            // You can add a notification here if needed
+        }
+    };
+
+    const handleBackToHome = () => {
+        navigate('/');
+    };
 
     const toggleCollapsed = () => {
         setCollapsed(!collapsed);
@@ -103,23 +121,71 @@ const DashboardLayout = () => {
                     top: 0,
                     bottom: 0,
                     height: '100vh',
-                    overflow: 'auto',
+                    overflow: 'hidden',
                     backgroundColor: '#fff',
-                    zIndex: 1000, // Added z-index for proper layering
+                    zIndex: 1000,
+                    display: 'flex',
+                    flexDirection: 'column'
                 }}
                 className="site-layout-background"
                 width={250}
             >
-                <div className="logo" style={{ padding: '16px', textAlign: 'center' }}>
-                    {/* Add logo or text here if needed */}
+                <div style={{ flex: 1, overflowY: 'auto', paddingBottom: '120px' }}>
+                    <div className="logo" style={{ padding: '16px', textAlign: 'center' }}>
+                        {/* Add logo or text here if needed */}
+                    </div>
+                    <Menu
+                        theme="light"
+                        mode="inline"
+                        selectedKeys={[location.pathname]}
+                        items={menuItems}
+                        style={{ borderRight: 0 }}
+                    />
                 </div>
-                <Menu
-                    theme="light"
-                    mode="inline"
-                    selectedKeys={[location.pathname]}
-                    items={menuItems}
-                    style={{ borderRight: 0 }}
-                />
+                <div style={{
+                    padding: '16px',
+                    borderTop: '1px solid #f0f0f0',
+                    backgroundColor: '#fff',
+                    position: 'absolute',
+                    bottom: '40px',
+                    left: 0,
+                    right: 0,
+                    zIndex: 1
+                }}>
+                    <Button 
+                        block 
+                        type="primary" 
+                        icon={<HomeOutlined />} 
+                        onClick={handleBackToHome}
+                        style={{ 
+                            marginBottom: '8px',
+                            textAlign: 'left',
+                            padding: '8px 16px',
+                            height: 'auto',
+                            lineHeight: '1.5',
+                            backgroundColor: '#1A9B9B',
+                            borderColor: '#1A9B9B'
+                        }}
+                    >
+                        {!collapsed && 'Back to Home'}
+                    </Button>
+                    <Button 
+                        block 
+                        type="primary" 
+                        icon={<LogoutOutlined />} 
+                        onClick={handleLogout}
+                        style={{
+                            textAlign: 'left',
+                            padding: '8px 16px',
+                            height: 'auto',
+                            lineHeight: '1.5',
+                            backgroundColor: '#651C18',
+                            borderColor: '#651C18'
+                        }}
+                    >
+                        {!collapsed && 'Logout'}
+                    </Button>
+                </div>
             </Sider>
 
             {/* Mobile Drawer */}
@@ -179,11 +245,30 @@ const DashboardLayout = () => {
                     />
 
                     <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-                        <Title level={4} style={{ margin: 0, whiteSpace: 'nowrap' }}>
-                            Dashboard
-                        </Title>
+
+                            <Button
+                                type="text"
+                                icon={<HomeOutlined />}
+                                onClick={handleBackToHome}
+                                style={{ marginRight: '8px' }}
+                            >
+                                Back to Home
+                            </Button>
+
 
                     </div>
+
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                        <Button
+                            type="text"
+                            icon={<LogoutOutlined />}
+                            onClick={handleLogout}
+                            danger
+                        >
+                            Logout
+                        </Button>
+                    </div>
+
 
                     {/* Desktop Toggle Button */}
                     <Button

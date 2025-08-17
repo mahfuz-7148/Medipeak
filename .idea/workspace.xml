@@ -4,13 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6d7d0295-2cb1-4869-b767-c894c303bedd" name="Changes" comment="updated home">
-      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Components/Navbar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Components/Navbar.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Pages/AvailableCamps.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Pages/AvailableCamps.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Pages/Home.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Pages/Home.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Router/Routes.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Router/Routes.jsx" afterDir="false" />
+    <list default="true" id="6d7d0295-2cb1-4869-b767-c894c303bedd" name="Changes" comment="updated overview">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Layouts/DashboardLayout.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Layouts/DashboardLayout.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Pages/Dashboard/Overview.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Pages/Dashboard/Overview.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,6 +71,7 @@
       <workItem from="1755321209701" duration="11873000" />
       <workItem from="1755341902839" duration="1236000" />
       <workItem from="1755356486444" duration="9795000" />
+      <workItem from="1755409157057" duration="5154000" />
     </task>
     <task id="LOCAL-00001" summary="updated theme">
       <option name="closed" value="true" />
@@ -123,7 +121,15 @@
       <option name="project" value="LOCAL" />
       <updated>1755360380226</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="updated overview">
+      <option name="closed" value="true" />
+      <created>1755411567971</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1755411567971</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -146,6 +152,7 @@
     <MESSAGE value="updated navbar" />
     <MESSAGE value="updated banner and home" />
     <MESSAGE value="updated home" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated home" />
+    <MESSAGE value="updated overview" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated overview" />
   </component>
 </project>
